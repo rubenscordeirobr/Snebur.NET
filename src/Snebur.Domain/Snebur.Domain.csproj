@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Snebur.Persistence.Common" />
+        
+		<InternalsVisibleTo Include="Snebur.Application.UnitTests" />
+		<InternalsVisibleTo Include="Snebur.ArchitectureTests" />
+		<InternalsVisibleTo Include="Snebur.UseCases.UnitTests" />
+		<InternalsVisibleTo Include="Snebur.Testing.Core" />
+		<InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Snebur.Core\Snebur.Core.csproj" />
+		<ProjectReference Include="..\Snebur.SharedKernel\Snebur.SharedKernel.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Primitives\Abstractions\" />
+	</ItemGroup>
+ 
+</Project>

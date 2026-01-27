@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="Snebur.Infrastructure.UnitTests" />
+        <InternalsVisibleTo Include="Snebur.ArchitectureTests" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="StackExchange.Redis" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Snebur.Application\Snebur.Application.csproj" />
+    </ItemGroup>
+
+</Project>
