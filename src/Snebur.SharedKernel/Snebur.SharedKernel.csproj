@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <RootNamespace>Snebur.Shared</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="Snebur.Application.UnitTests" />
+        <InternalsVisibleTo Include="Snebur.FunctionalTests" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Snebur.Core\Snebur.Core.csproj" />
+    </ItemGroup>
+
+</Project>
