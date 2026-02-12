@@ -1,0 +1,14 @@
+﻿global using System;
+global using System.Diagnostics.CodeAnalysis;
+global using Snebur.Core;
+global using Snebur.Core.Enums;
+global using Snebur.Domain.Entities.Identities.Events;
+global using Snebur.Domain.Exceptions;
+global using Snebur.Domain.Primitives;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.Interfaces.Common;
+global using Snebur.SharedKernel.Interfaces.Identities;
+global using Snebur.SharedKernel.Interfaces.Shared;
+global using Snebur.SharedKernel.ValueObjects;
+global using Snebur.SharedKernel.Abstractions;
