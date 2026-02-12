@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <RunSettingsFilePath>$(MSBuildProjectDirectory)\test.runsettings</RunSettingsFilePath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Http" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="NetArchTest.Rules" />
+        <PackageReference Include="xunit.v3" />
+        <PackageReference Include="xunit.runner.visualstudio" />
+
+        <PackageReference Include="FluentAssertions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Snebur.Application\Snebur.Application.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.ClientGateway\Snebur.ClientGateway.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Core\Snebur.Core.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Domain\Snebur.Domain.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Infrastructure\Snebur.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Persistence.Activity\Snebur.Persistence.Activity.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Persistence.Common\Snebur.Persistence.Common.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Persistence.Identity\Snebur.Persistence.Identity.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Presentation\Snebur.Presentation.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.RuntimeServices\Snebur.RuntimeServices.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.SharedKernel\Snebur.SharedKernel.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.UseCases.Shared\Snebur.UseCases.Shared.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.UseCases\Snebur.UseCases.csproj" />
+        <ProjectReference Include="..\Snebur.Application.UnitTests\Snebur.Application.UnitTests.csproj" />
+        <ProjectReference Include="..\Snebur.FunctionalTests\Snebur.FunctionalTests.csproj" />
+        <ProjectReference Include="..\Snebur.Infrastructure.UnitTests\Snebur.Infrastructure.UnitTests.csproj" />
+        <ProjectReference Include="..\Snebur.Testing.Core\Snebur.Testing.Core.csproj" />
+        <ProjectReference Include="..\Snebur.UseCases.UnitTests\Snebur.UseCases.UnitTests.csproj" />
+    </ItemGroup>
+
+</Project>
