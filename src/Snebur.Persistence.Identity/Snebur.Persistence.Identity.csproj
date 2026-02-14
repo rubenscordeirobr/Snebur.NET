@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AnalysisMode>all</AnalysisMode>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Snebur.Persistence.UnitTests" />
+    <InternalsVisibleTo Include="Snebur.Application.UnitTests" />
+    <InternalsVisibleTo Include="Snebur.Testing.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Snebur.Persistence.Common\Snebur.Persistence.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+
+</Project>
