@@ -1,0 +1,17 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using Snebur.Application.Abstractions.Events;
+global using Snebur.Application.Abstractions.Services;
+global using Snebur.Core;
+global using Snebur.Core.Exceptions;
+global using Snebur.Core.Extensions;
+global using Snebur.Core.Helpers;
+global using Snebur.Domain.Entities.Identities;
+global using Snebur.Domain.Enums;
+global using Snebur.Domain.Exceptions;
+global using Snebur.Domain.Primitives;
+global using Snebur.SharedKernel.Abstractions;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.Interfaces.Common;
+global using Snebur.SharedKernel.Interfaces.Identities;
