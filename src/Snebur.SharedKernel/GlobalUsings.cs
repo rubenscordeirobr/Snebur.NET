@@ -1,0 +1,10 @@
+﻿global using System;
+global using Snebur.Core;
+global using Snebur.Core.Enums;
+global using Snebur.Core.Helpers;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.ValueObjects;
+global using Snebur.Core.Attributes;
+global using Snebur.Core.Extensions;
+global using Snebur.SharedKernel.Abstractions;
+global using Snebur.SharedKernel.Helpers;
