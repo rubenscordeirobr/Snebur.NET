@@ -1,0 +1,17 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq.Expressions;
+global using Snebur.Application.Abstractions.Persistence.Identities;
+global using Snebur.Application.Abstractions.Services;
+global using Snebur.Core;
+global using Snebur.Core.Enums;
+global using Snebur.Domain.Entities.Identities;
+global using Snebur.Application.Extensions;
+global using Snebur.Persistence.Common;
+global using Snebur.Persistence.Common.Enums;
+global using Snebur.Persistence.Identity.Extensions;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.ValueObjects;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
