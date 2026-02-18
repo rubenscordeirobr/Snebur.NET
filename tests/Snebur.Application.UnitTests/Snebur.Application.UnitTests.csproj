@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+        <SonarQubeExclude>true</SonarQubeExclude>
+		<RunSettingsFilePath>$(MSBuildProjectDirectory)\test.runsettings</RunSettingsFilePath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoFixture" />
+		<PackageReference Include="FluentAssertions" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" />
+
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="Moq" />
+		<PackageReference Include="StackExchange.Redis" />
+        <PackageReference Include="xunit.v3" />
+		<PackageReference Include="xunit.runner.visualstudio" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Snebur.Application\Snebur.Application.csproj" />
+		<ProjectReference Include="..\..\src\Snebur.Persistence.Identity\Snebur.Persistence.Identity.csproj" />
+		<ProjectReference Include="..\..\src\Snebur.Presentation\Snebur.Presentation.csproj" />
+		<ProjectReference Include="..\..\src\Snebur.UseCases\Snebur.UseCases.csproj" />
+		<ProjectReference Include="..\Snebur.Testing.Core\Snebur.Testing.Core.csproj" />
+	</ItemGroup>
+ 
+</Project>
