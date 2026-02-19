@@ -1,0 +1,17 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using Snebur.Core;
+global using Snebur.Core.Enums;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Abstractions;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.Interfaces.Identities;
+global using Snebur.SharedKernel.ValueObjects;
+global using Snebur.UseCases.Common;
+global using Snebur.UseCases.Common.Validations;
+global using Snebur.UseCases.Abstractions.Identities;
+global using Snebur.UseCases.Identities.Tenants.Commands;
+global using Snebur.UseCases.Shared;
+global using FluentValidation;
+global using Snebur.UseCases.Identities.Shared;
+global using Snebur.SharedKernel;
