@@ -1,0 +1,79 @@
+﻿services:
+  # Postgres
+  postgres:
+    container_name: sn_postgres
+    image: postgres:latest
+    restart: always
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_USER=snebur_user
+      - POSTGRES_PASSWORD=Temp@Teste123%$
+    volumes:
+      - ./scripts/postgres-init:/docker-entrypoint-initdb.d/
+#     - K:\Docker\Volumes\Postgres\Data:/var/lib/postgresql/data
+
+  # PgAdmin
+  pgadmin:
+    container_name: sn_pgadmin
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - "15050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@snebur.com
+      - PGADMIN_DEFAULT_PASSWORD=Temp@Teste123%$
+    depends_on:
+      - postgres
+
+  # Redis Cache
+  redis:
+    container_name: sn_redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "16379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redis-data:/data
+    environment:
+      - REDIS_PASSWORD=Temp@Teste123%$
+  
+  # MongoDB
+  mongodb:
+    container_name: sn_mongodb
+    image: mongo:latest
+    restart: always
+    ports:
+      - "17017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=snebur_user
+      - MONGO_INITDB_ROOT_PASSWORD=Temp@Teste123%$
+      - MONGO_INITDB_DATABASE=activityDB
+    volumes:
+      - ./scripts/mongo-init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  #libretranslate
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: sn_libretranslate
+    ports:
+      - "15000:5000"
+    restart: unless-stopped
+    environment:
+      - LT_UPDATE_MODELS=true
+      # Optional: Speed up startup by only loading specific languages
+      # - LT_LOAD_ONLY=en,es,fr,pt
+    volumes:
+      # Keeps language models downloaded so it doesn't re-download on every restart
+      - libretranslate_models:/home/libretranslate/.local:rw
+    healthcheck:
+      test: ['CMD-SHELL', './venv/bin/python scripts/healthcheck.py']
+      interval: 10s
+      timeout: 4s
+      retries: 4
+volumes:
+  redis-data:
+    driver: local
+  libretranslate_models:
+    driver: local
