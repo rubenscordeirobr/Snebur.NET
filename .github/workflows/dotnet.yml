@@ -1,0 +1,35 @@
+﻿name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
+    - name: Create azure-translator-secrets.json
+      run: |
+         mkdir -p .secrets
+         echo "${{ secrets.AZURE_TRANSLATOR_SECRET_JSON }}" | base64 -d > .secrets/azure-translator-secrets.json
+
+    - name: Validate azure-translator-secrets.json
+      run: jq empty .secrets/azure-translator-secrets.json
+    
+    - name: Restore dependencies
+      run: dotnet restore Snebur.slnx
+
+    - name: Build
+      run: dotnet build Snebur.slnx --no-restore
+    - name: Test
+      run: dotnet test Snebur.slnx --no-build --verbosity normal
