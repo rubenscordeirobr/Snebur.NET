@@ -1,0 +1,13 @@
+﻿global using System;
+global using Snebur.Application;
+global using Snebur.Core.Utils;
+global using Snebur.IdentityApi;
+global using Snebur.IdentityApi.Conventions;
+global using Snebur.Infrastructure;
+global using Snebur.Persistence.Activity;
+global using Snebur.Persistence.Identity;
+global using Snebur.Presentation;
+global using Snebur.Presentation.Extensions;
+global using Snebur.RuntimeServices;
+global using Snebur.UseCases;
+global using Microsoft.AspNetCore.Mvc.ApplicationModels;
