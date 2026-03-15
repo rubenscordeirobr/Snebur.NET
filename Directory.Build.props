@@ -1,0 +1,47 @@
+﻿<Project>
+
+    <PropertyGroup>
+
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <InvariantGlobalization>true</InvariantGlobalization>
+
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(IsTestProject)' != 'true'">
+
+        <AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(IsTestProject)' == 'true'">
+
+        <AnalysisMode>none</AnalysisMode>
+        <AnalysisLevel>none</AnalysisLevel>
+        <SonarQubeExclude>true</SonarQubeExclude>
+
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+        <AnalysisMode>none</AnalysisMode>
+        <AnalysisLevel>none</AnalysisLevel>
+        <SonarQubeExclude>true</SonarQubeExclude>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(MSBuildProjectExtension)' != '.dcproj' and '$(IsTestProject)' != 'true' and '$(MSBuildProjectName' != 'Snebur.CodeAnalysis'">
+
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+
+        <!--<PackageReference Include="SonarAnalyzer.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>-->
+    </ItemGroup>
+
+</Project>
