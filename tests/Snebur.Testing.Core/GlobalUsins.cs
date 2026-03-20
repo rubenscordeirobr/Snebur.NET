@@ -1,0 +1,17 @@
+﻿global using Snebur.Application.Abstractions.Persistence.Activities;
+global using Snebur.Application.Abstractions.Security;
+global using Snebur.Application.Abstractions.Services;
+global using Snebur.Application.Events;
+global using Snebur.Core;
+global using Snebur.Domain.Primitives;
+global using Snebur.Persistence.Common.Configurations;
+global using Snebur.Persistence.Identity;
+global using Snebur.SharedKernel.Abstractions;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.Interfaces.Identities;
+global using Snebur.Testing.Core.Mocks.Infrastructure;
+global using Snebur.Testing.Core.Mocks.Repositories;
+global using FluentAssertions;
+global using Microsoft.Extensions.DependencyInjection;
+global using Xunit;
