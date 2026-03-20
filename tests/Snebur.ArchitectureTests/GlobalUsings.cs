@@ -1,0 +1,11 @@
+﻿global using Xunit;
+global using FluentAssertions;
+global using Snebur.ArchitectureTests.TestSupport;
+global using Snebur.ArchitectureTests.Extensions;
+global using System.Reflection;
+global using FluentValidation.Validators;
+global using FluentValidation;
+global using Snebur.Core;
+global using Snebur.Core.Extensions;
+global using Snebur.Testing.Core.Mocks;
+global using Snebur.SharedKernel.Abstractions;
