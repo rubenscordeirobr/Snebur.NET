@@ -1,0 +1,67 @@
+<Solution>
+  <Folder Name="/scripts/" Id="e660ad3f-39f6-4607-bb7b-4030369cf622">
+    <File Path="scripts/Generate-CompilerConfig.ps1" />
+    <File Path="scripts/Set-WhatsAppEnvVars.ps1" />
+  </Folder>
+  <Folder Name="/scripts/docker-compose/" Id="6192a6cd-d3e9-4e55-b4e3-fbacec00495a">
+    <File Path="scripts/docker-componse/docker-compose-up.cmd" />
+  </Folder>
+  <Folder Name="/scripts/mongo-db-init/" Id="25588281-f65d-4597-b34e-4f3717d8aaef">
+    <File Path="scripts/mongo-init/mongo-init.js" />
+  </Folder>
+  <Folder Name="/scripts/postgres-init/" Id="f5f4a23f-21e2-4191-a6ff-379896021b03">
+    <File Path="scripts/postgres-init/init.sql" />
+  </Folder>
+  <Folder Name="/solution-items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-UI/">
+    <Project Path="src/Snebur.UI/Snebur.UI.csproj" />
+  </Folder>
+  <Folder Name="/src/02-API/" Id="02ea681e-c7d8-13c7-8484-4ac65e1b71e8">
+    <Project Path="src/Snebur.IdentityApi/Snebur.IdentityApi.csproj" />
+  </Folder>
+  <Folder Name="/src/03-Presentation/" Id="22dcb3f3-dbd6-7824-654e-ba8e20c7a15d">
+    <Project Path="src/Snebur.ClientGateway/Snebur.ClientGateway.csproj" />
+    <Project Path="src/Snebur.Presentation/Snebur.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/04-UseCases/">
+    <Project Path="src/Snebur.UseCases.Shared/Snebur.UseCases.Shared.csproj" />
+    <Project Path="src/Snebur.UseCases/Snebur.UseCases.csproj" />
+  </Folder>
+  <Folder Name="/src/05-Core/" Id="575d36c4-fccc-3e0a-e8ab-1f4fea846db0">
+    <Project Path="src/Snebur.Application/Snebur.Application.csproj" />
+    <Project Path="src/Snebur.Domain/Snebur.Domain.csproj" />
+    <Project Path="src/Snebur.Http/Snebur.Http.csproj" Id="7449128c-e8d2-438a-bcd8-d5a61123f635" />
+    <Project Path="src/Snebur.SharedKernel/Snebur.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/src/06-Infrastructure/" Id="1f87a12e-d750-680c-2313-99ae4bc9444d">
+    <Project Path="src/Snebur.Infrastructure/Snebur.Infrastructure.csproj" />
+    <Project Path="src/Snebur.Persistence.Activity/Snebur.Persistence.Activity.csproj" />
+    <Project Path="src/Snebur.Persistence.Common/Snebur.Persistence.Common.csproj" />
+    <Project Path="src/Snebur.Persistence.Identity/Snebur.Persistence.Identity.csproj" />
+    <Project Path="src/Snebur.RuntimeServices/Snebur.RuntimeServices.csproj" Id="2a1a259d-2cea-45cc-bfbc-975d056faa51" />
+  </Folder>
+  <Folder Name="/src/07-Common/" Id="1a81cfe0-9ef7-747b-16c1-63226edbcad8">
+    <Project Path="src/Snebur.Core/Snebur.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Snebur.ArchitectureTests/Snebur.ArchitectureTests.csproj" />
+    <Project Path="tests/Snebur.FunctionalTests/Snebur.FunctionalTests.csproj" Id="c749f277-7e74-4c30-b3d2-5933a059bfae" />
+    <Project Path="tests/Snebur.Testing.Core/Snebur.Testing.Core.csproj" Id="27ecd09a-f64d-4147-a4af-65b98ef873f8" />
+  </Folder>
+  <Folder Name="/tests/units/" Id="80a6388e-d43b-41dd-8681-30da612bb89a">
+    <Project Path="tests/Snebur.Application.UnitTests/Snebur.Application.UnitTests.csproj" />
+    <Project Path="tests/Snebur.Core.UnitTests/Snebur.Core.UnitTests.csproj" />
+    <Project Path="tests/Snebur.Infrastructure.UnitTests/Snebur.Infrastructure.UnitTests.csproj" Id="271d602f-57aa-4eaa-84ea-88a53cdddfaf" />
+    <Project Path="tests/Snebur.UseCases.UnitTests/Snebur.UseCases.UnitTests.csproj" />
+  </Folder>
+  <Project Path="docker-compose.dcproj" Id="1fcbe191-34fe-4b2e-8915-ca81553958ad">
+    <Build />
+  </Project>
+</Solution>
