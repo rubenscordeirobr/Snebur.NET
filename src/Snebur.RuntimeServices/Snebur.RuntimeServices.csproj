@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="Snebur.Application.UnitTests" />
+        <InternalsVisibleTo Include="Snebur.UseCases.UnitTests" />
+        <InternalsVisibleTo Include="Snebur.ArchitectureTests" />
+        <InternalsVisibleTo Include="Snebur.Testing.Core" />
+        <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Snebur.Application\Snebur.Application.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Configurations\" />
+    </ItemGroup>
+</Project>
