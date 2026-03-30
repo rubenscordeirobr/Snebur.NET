@@ -1,0 +1,11 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using Snebur.UseCases.Constants;
+global using Snebur.UseCases.Abstractions.Identities;
+global using Snebur.Core;
+global using Snebur.ClientGateway.Common.Attributes;
+global using Snebur.ClientGateway.Common.Abstractions;
+global using Snebur.UseCases.Identities.Shared;
+global using Snebur.SharedKernel;
+global using Snebur.ClientGateway.Abstractions;
+global using Snebur.SharedKernel.Enums;
