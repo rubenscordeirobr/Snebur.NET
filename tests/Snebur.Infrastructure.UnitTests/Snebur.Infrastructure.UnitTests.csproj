@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+ 
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" />
+        <PackageReference Include="FluentValidation" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit.v3" />
+        <PackageReference Include="xunit.runner.visualstudio">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Snebur.Persistence.Identity\Snebur.Persistence.Identity.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Persistence.Activity\Snebur.Persistence.Activity.csproj" />
+        <ProjectReference Include="..\..\src\Snebur.Infrastructure\Snebur.Infrastructure.csproj" />
+        <ProjectReference Include="..\Snebur.Testing.Core\Snebur.Testing.Core.csproj" />
+    </ItemGroup>
+    
+</Project>

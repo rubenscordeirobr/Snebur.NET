@@ -1,0 +1,14 @@
+﻿global using Snebur.Core;
+global using Snebur.Domain.Primitives;
+global using Snebur.Persistence.Common.Configurations;
+global using Snebur.Persistence.Common.Converters;
+global using Snebur.Persistence.Common.Exceptions;
+global using Snebur.Persistence.Common.Validations;
+global using Snebur.SharedKernel.Constants;
+global using Snebur.SharedKernel.Enums;
+global using Snebur.SharedKernel.Interfaces.Common;
+global using Snebur.SharedKernel.ValueObjects;
+global using Snebur.Testing.Core.Mocks;
+global using FluentAssertions;
+global using Microsoft.Extensions.DependencyInjection;
+global using Xunit;
