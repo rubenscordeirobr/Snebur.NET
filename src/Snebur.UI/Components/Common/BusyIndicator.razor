@@ -1,0 +1,51 @@
+﻿@inject IThemeService ThemeService;
+
+@if (IsBusy)
+{
+    <div class="loading-overlay" style="background-color: @_computedBackgroundColor">
+        <div class="spinner"></div>
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public bool IsBusy { get; set; }
+
+    [Parameter]
+    public string? BackgroundColor { get; set; }
+
+    private string _computedBackgroundColor = "rgba(0, 0, 0, 0.2)";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ThemeService.OnThemeModeChanged += OnThemeModeChanged;
+    }
+
+    protected override void OnParametersSet()
+    {
+        UpdateBackgroundColor();
+    }
+
+    private void OnThemeModeChanged()
+    {
+        UpdateBackgroundColor();
+    }
+
+    private void UpdateBackgroundColor()
+    {
+        _computedBackgroundColor = GetComputedBackgroundColor();
+    }
+
+    private string GetComputedBackgroundColor()
+    {
+        if (!string.IsNullOrEmpty(BackgroundColor))
+        {
+            return BackgroundColor;
+        }
+        return ThemeService.IsDarkMode
+                ? "rgba(255, 255, 255, 0.2"
+                : "rgba(0, 0, 0, 0.2)";
+    }
+}
