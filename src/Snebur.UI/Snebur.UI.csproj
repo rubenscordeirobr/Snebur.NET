@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <PropertyGroup>
+        <AnalysisMode>all</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <DartSassOutputStyle>expanded</DartSassOutputStyle>
+        <DartSassOutputLevel>verbose</DartSassOutputLevel>
+        <DartSassMessageLevel>High</DartSassMessageLevel>
+    </PropertyGroup>
+
+    <Target Name="PreBuildCompilerConfig" BeforeTargets="BeforeBuild" Condition="'$(OS)' == 'Windows_NT'">
+        <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File ..\..\scripts\Generate-CompilerConfig.ps1 -ProjectPath $(MSBuildProjectDirectory) " />
+    </Target>
+
+    <ItemGroup>
+      <None Include="wwwroot\css\color-variable-list.css" />
+    </ItemGroup>
+   
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Update="wwwroot\**">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" />
+        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" />
+        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+
+        <PackageReference Include="DartSassBuilder" />
+        <PackageReference Include="Blazored.FluentValidation" />
+
+        <!--<PackageReference Include="Microsoft.TypeScript.MSBuild">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>-->
+        
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Snebur.ClientGateway\Snebur.ClientGateway.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="wwwroot\js\" />
+    </ItemGroup>
+ 
+</Project>
