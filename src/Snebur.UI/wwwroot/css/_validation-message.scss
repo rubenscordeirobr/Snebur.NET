@@ -1,0 +1,16 @@
+﻿@import "_color.scss";
+
+.validation-message {
+    color: var(--fail-color) !important;
+}
+
+fluent-text-field {
+
+    &.invalid {
+
+        &::after {
+            background-color: var(--fail-color) !important;
+            border-bottom: var(--fail-color) !important;
+        }
+    }
+}
