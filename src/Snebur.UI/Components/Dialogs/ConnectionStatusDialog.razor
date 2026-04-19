@@ -1,0 +1,43 @@
+﻿@implements IDialogContentComponent<ConnectionStatusDialog>;
+@inject IJsonStringLocalizer<ConnectionStatusDialog> Localizer;
+
+<FluentDialogHeader ShowDismiss="false">
+    <FluentStack VerticalAlignment="VerticalAlignment.Center">
+        <FluentIcon Value="@(new Icons.Regular.Size24.PlugDisconnected())"
+                    Color="Color.Error" />
+
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Localizer["TitleLabel", "Internet Connection Lost"],
+        </FluentLabel>
+    </FluentStack>
+</FluentDialogHeader>
+
+<FluentDialogBody>
+     
+    <FluentStack VerticalGap="GapSizes.Large"
+                 Orientation="Orientation.Vertical"
+                 HorizontalAlignment="HorizontalAlignment.Center">
+
+        <FluentLabel Typo="Typography.Subject">
+            @Localizer["MessageLabel", "Your internet connection appears to be offline."]
+        </FluentLabel>
+
+        <FluentProgressRing />
+
+        <FluentLabel Typo="Typography.Body">
+            @Localizer["ReconnectingLabel", "Trying to reconnect..."]
+        </FluentLabel>
+
+    </FluentStack>
+
+</FluentDialogBody>
+ 
+@code {
+
+    [Parameter]
+    public ConnectionStatusDialog Content { get; set; } = default!;
+
+    [CascadingParameter]
+    public FluentDialog Dialog { get; set; } = default!;
+
+}
