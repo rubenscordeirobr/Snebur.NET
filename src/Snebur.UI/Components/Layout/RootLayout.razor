@@ -1,0 +1,82 @@
+﻿@inherits LayoutComponentBase
+
+@inject IClientUserSessionContextService SessionContextService
+@inject IThemeService ThemeService
+@inject ICultureProvider CultureProvider
+@inject IJsonStringLocalizer<RootLayout> Localizer
+@inject LocalizedNavigationManager NavigationManager
+
+
+<FluentDesignTheme Mode="@Mode"
+                   OfficeColor="@OfficeColor">
+
+    <div class="dark-mode-switch">
+        <FluentSwitch Label="@Localizer["DarkModeSwitchLabel", "Dark Mode"]"
+                      @bind-Value="@IsDarkMode" />
+    </div>
+
+    @Body
+
+    <BusyIndicatorProvider />
+    <FluentDialogProvider />
+
+</FluentDesignTheme>
+
+@code
+{
+    public DesignThemeModes Mode { get; set; } = DefaultLayoutConstants.ThemeMode;
+
+    public OfficeColor? OfficeColor { get; set; } = DefaultLayoutConstants.DefaultOfficeColor;
+
+    private string CultureCode { get; set; } = "en-us";
+
+    private bool IsDarkMode
+    {
+        get => Mode == DesignThemeModes.Dark;
+        set => ThemeService.SetThemeMode(value ? DesignThemeModes.Dark : DesignThemeModes.Light);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        await SessionContextService.InitializeAsync();
+        await CultureProvider.InitializeAsync();
+        await ThemeService.InicializeAsync();
+
+        Mode = ThemeService.ThemeMode;
+        OfficeColor = ThemeService.OfficeColor;
+
+        ThemeService.OnThemeModeChanged += OnThemeModeChanged;
+        ThemeService.OnOfficeColorChanged += OnOfficeColorChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+            await SessionContextService.InitializeAsync();
+        }
+    }
+
+
+    private void OnThemeModeChanged()
+    {
+        Mode = ThemeService.ThemeMode;
+        StateHasChanged();
+    }
+
+    private void OnOfficeColorChanged()
+    {
+        OfficeColor = ThemeService.OfficeColor;
+    }
+
+    void PickRandomColor()
+    {
+        var random = OfficeColorUtilities.GetRandom();
+        ThemeService.SetOfficeColor(random);
+    }
+
+}
