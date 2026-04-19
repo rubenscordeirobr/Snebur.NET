@@ -1,0 +1,14 @@
+﻿@inject IApplicationInfo ApplicationInfo;
+
+
+<PageTitle> @ChildContent - @ApplicationInfo.Title </PageTitle>
+
+<h3>
+@ChildContent 
+</h3>
+
+@code {
+ 
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
