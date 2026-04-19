@@ -1,0 +1,15 @@
+﻿global using System.ComponentModel;
+global using Snebur.Core;
+global using Snebur.Core.Enums;
+global using Snebur.Core.Exceptions;
+global using Snebur.Core.Extensions;
+global using Snebur.Core.Utils;
+global using Snebur.SharedKernel.Abstractions;
+global using Snebur.SharedKernel.Factories;
+global using Snebur.UI.Abstractions;
+global using Snebur.UI.Exceptions;
+global using Snebur.UI.Extensions;
+global using Snebur.UI.Helpers;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.AspNetCore.Components.Forms;
+global using Microsoft.FluentUI.AspNetCore.Components;
