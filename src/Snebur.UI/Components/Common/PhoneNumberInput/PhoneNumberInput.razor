@@ -1,0 +1,39 @@
+﻿@namespace Snebur.UI.Components.Common
+
+@inherits FluentInputBase<PhoneNumber?>
+
+@inject IJsonStringLocalizer<PhoneNumberInput> Localizer
+@inject IJsonStringLocalizer<InternationalDialingCode> LocalizerDialingCode
+ 
+<FluentInputLabel ForId="@Id" Label="@Label"
+                  AriaLabel="@AriaLabel"
+                  ChildContent="@LabelTemplate"
+                  Required="@Required" />
+
+<FluentStack Orientation="Orientation.Horizontal">
+
+    <FluentSelect Width="180px"
+                  Height="300px"
+                  ReadOnly="@ReadOnly"
+                  Disabled="@Disabled"
+                  Required="@Required"
+                  Appearance="Appearance.Filled"
+                  Items="@(EnumUtils.GetValues<InternationalDialingCode>())"
+                  OptionText="@(x => LocalizerDialingCode[x])"
+                  @bind-SelectedOption="@InternationalDialingCode">
+
+    </FluentSelect>
+     
+    <FluentTextField
+        Id="@($"{Id}_Number")"
+        ReadOnly="@ReadOnly"
+                     Disabled="@Disabled"
+                     Required="@Required"
+                     Style="min-width: 200px"
+                     TextFieldType="TextFieldType.Tel"
+                     @bind-Value="NationalNumber">
+
+    </FluentTextField>
+
+
+</FluentStack>
