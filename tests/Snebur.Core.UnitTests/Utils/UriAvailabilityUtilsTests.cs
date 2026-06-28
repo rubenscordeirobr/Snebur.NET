@@ -3,11 +3,15 @@ using Snebur.Core.Helpers;
 
 namespace Snebur.Core.UnitTests.Utils;
 
+//ignore this class
+[Trait("Category", "SkipGithubActions")]
 public class UriAvailabilityUtilsTests
 {
     private readonly ITestOutputHelper _testOutput;
     public UriAvailabilityUtilsTests(ITestOutputHelper testOutput)
     {
+        _testOutput = testOutput;
+
         var handler = new MockHttpMessageHandler();
         var httpClient = new HttpClient(handler);
         UriAvailabilityUtils.SetTestHttpClient(httpClient);

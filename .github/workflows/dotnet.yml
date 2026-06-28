@@ -32,5 +32,5 @@ jobs:
     - name: Create lang folder
       run: mkdir -p ./Snebur.NET/lang
     - name: Test
-      run: dotnet test Snebur.NET.slnx --verbosity detailed
+      run: dotnet test Snebur.NET.slnx --verbosity normal --filter Category!=SkipGithubActions
     

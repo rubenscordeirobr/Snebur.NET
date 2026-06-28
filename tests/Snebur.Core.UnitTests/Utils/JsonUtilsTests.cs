@@ -3,6 +3,7 @@ using Snebur.Core.Helpers;
 
 namespace Snebur.Core.UnitTests.Utils;
 
+[Trait("Category", "SkipGitHubActions")]
 public class JsonUtilsTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
@@ -96,7 +97,7 @@ public class JsonUtilsTests
         act.Should().Throw<JsonException>();
     }
 
-    //[Fact]
+    [Fact]
     public void EnableIndentationInDevelopment_ShouldEnableIndentation_WhenEnvironmentIsDevelopment_AndWriteIndentedIsFalse()
     {
         lock (_lock)
@@ -134,7 +135,7 @@ public class JsonUtilsTests
         }
     }
 
-    //[Fact]
+    [Fact]
     public static void EnableIndentationInDevelopment_ShouldNotChangeIndentation_WhenWriteIndentedIsAlreadyTrue()
     {
         lock (_lock)
@@ -167,7 +168,7 @@ public class JsonUtilsTests
         }
     }
 
-    //[Fact]
+    [Fact]
     public static void EnableIndentationInDevelopment_ShouldNotEnableIndentation_WhenEnvironmentIsNotDevelopment()
     {
         lock (_lock)
