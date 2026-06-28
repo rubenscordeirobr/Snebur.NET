@@ -1,5 +1,8 @@
 ﻿name: .NET
 
+env:
+  GITHUB_ACTIONS: true
+
 on:
   push:
     branches: [ "main" ]
@@ -12,24 +15,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
+    - name: Display dotnet version
+      run: dotnet --version
 
-    - name: Create azure-translator-secrets.json
-      run: |
-         mkdir -p .secrets
-         echo "${{ secrets.AZURE_TRANSLATOR_SECRET_JSON }}" | base64 -d > .secrets/azure-translator-secrets.json
-
-    - name: Validate azure-translator-secrets.json
-      run: jq empty .secrets/azure-translator-secrets.json
-    
     - name: Restore dependencies
-      run: dotnet restore Snebur.slnx
+      run: dotnet restore Snebur.NET.slnx
 
     - name: Build
-      run: dotnet build Snebur.slnx --no-restore
+      run: dotnet build Snebur.NET.slnx --no-restore
     - name: Test
-      run: dotnet test Snebur.slnx --no-build --verbosity normal
+      run: dotnet test Snebur.NET.slnx --verbosity detailed
+    
