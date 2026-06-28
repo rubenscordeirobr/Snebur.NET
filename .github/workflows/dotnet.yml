@@ -2,7 +2,7 @@
 
 env:
   GITHUB_ACTIONS: true
-
+  XUNIT_ENVIRONMENT: TEST
 on:
   push:
     branches: [ "main" ]
@@ -28,6 +28,9 @@ jobs:
 
     - name: Build
       run: dotnet build Snebur.NET.slnx --no-restore
+
+    - name: Create lang folder
+      run: mkdir -p ./Snebur.NET/lang
     - name: Test
       run: dotnet test Snebur.NET.slnx --verbosity detailed
     

@@ -15,6 +15,11 @@ public static class EnvironmentHelper
         return _isXUnitTest ??= Environment.GetEnvironmentVariable("XUNIT_ENVIRONMENT") == "TEST";
     }
 
+    public static bool IsGithubActions()
+    {
+        return Environment.GetEnvironmentVariable("GITHUB_ACTIONS") == "true";
+    }
+
     public static void Reset()
     {
         _isDevelopment = null;

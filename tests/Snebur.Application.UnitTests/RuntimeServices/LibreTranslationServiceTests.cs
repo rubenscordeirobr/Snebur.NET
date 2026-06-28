@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Snebur.Core.Helpers;
 using Snebur.Testing.Core.Extensions;
 
 namespace Snebur.Application.UnitTests.RuntimeServices;
@@ -7,8 +8,7 @@ public class LibreTranslationServiceTests
 {
     private readonly ITestOutputHelper _testOutput;
     private readonly TestOutputLogger<LibreTranslationService> _logger;
-    public LibreTranslationServiceTests(
-        ITestOutputHelper testOutput)
+    public LibreTranslationServiceTests(ITestOutputHelper testOutput)
     {
         _testOutput = testOutput;
         _logger = new TestOutputLogger<LibreTranslationService>(_testOutput);
@@ -19,7 +19,7 @@ public class LibreTranslationServiceTests
     {
         //ignorar this test in github actions because it requires a running instance of LibreTranslate
 
-        if (Environment.GetEnvironmentVariable("GITHUB_ACTIONS") == "true")
+        if (EnvironmentHelper.IsGithubActions())
         {
             _testOutput.WriteLine("Skipping test in GitHub Actions because it requires a running instance of LibreTranslate.");
             return;

@@ -115,7 +115,7 @@ public static class UriAvailabilityUtils
 
     private static HttpClient CreateHttpClient()
     {
-        if (EnvironmentHelper.IsXUnitTesting())
+        if (EnvironmentHelper.IsXUnitTesting() || EnvironmentHelper.IsGithubActions())
         {
             throw new InvalidOperationException(
                 "XUnit testing environment detected. \r\n" +
@@ -126,7 +126,7 @@ public static class UriAvailabilityUtils
 
     internal static void SetTestHttpClient(HttpClient httpClient)
     {
-        if (!EnvironmentHelper.IsXUnitTesting())
+        if (!EnvironmentHelper.IsXUnitTesting() && !EnvironmentHelper.IsGithubActions())
         {
             throw new InvalidOperationException(
                 "Test HttpClient can only be set in XUnit testing environment.");
