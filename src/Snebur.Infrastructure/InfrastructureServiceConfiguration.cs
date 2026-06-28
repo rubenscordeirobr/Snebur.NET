@@ -19,15 +19,14 @@ public static class InfrastructureServiceConfiguration
         IConfiguration configuration,
         IHostEnvironment hostEnvironment)
     {
-        var azureTranslationSecrets = AzureTranslationSecretsFactory.Create(configuration, hostEnvironment);
         var localizationConfiguration = JsonLocalizationConfigurationFactory.Create(configuration, hostEnvironment);
 
         services.AddSingleton<ISecureConfiguration, SecureConfiguration>()
             .AddSingleton<ICacheRepository, CacheRepository>()
             .AddSingleton<IFileService, FileService>()
             .AddSingleton<JsonLocalizationCacheConfiguration>(localizationConfiguration)
-            .AddSingleton(localizationConfiguration)
-            .AddSingleton(azureTranslationSecrets);
+            .AddSingleton(localizationConfiguration);
+            
 
         services.AddSingleton<IConnectionMultiplexer>(sp =>
         {

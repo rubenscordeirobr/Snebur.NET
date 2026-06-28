@@ -21,15 +21,12 @@ public static class MockConfigurationExtensions
             CustomTranslationModelId = null
         };
 
-        var azureSecretsTest = AzureTranslationSecretsTestFactory.Create();
-
         return services.AddSingleton<ISecureConfiguration, SecureConfigurationMock>()
             .AddSingleton<ICacheRepository, CacheRepositoryMock>()
             .AddSingleton<IEmailSender, EmailSenderMock>()
             .AddSingleton<IFileService, FileServiceMock>()
             .AddSingleton<JsonLocalizationCacheConfiguration>(config)
-            .AddSingleton(config)
-            .AddSingleton(azureSecretsTest);
+            .AddSingleton(config);
     }
 
     private static string GetLocalizationFolder()
