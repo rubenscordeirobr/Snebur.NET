@@ -38,10 +38,7 @@ public static class MockConfigurationExtensions
         var current = new DirectoryInfo(temp);
         var testsDirectory = current.GetRequiredParent("tests");
         var localizationPath = Path.GetFullPath(Path.Combine(testsDirectory.FullName, "../lang"));
-        if (!Directory.Exists(localizationPath))
-        {
-            throw new DirectoryNotFoundException($"Localization folder not found: {localizationPath}");
-        }
+        Directory.CreateDirectory(localizationPath);
         return localizationPath;
     }
 
